@@ -30,7 +30,7 @@ if ($_POST) {
 
         // 2 : Le MDP saisie, crypté correspond-t-il au MDP enregistré
 
-        $mdp_saisie = $_POST['mdp'];
+        $mdp_saisie = crc32($_POST['mdp']);
         if ($mdp_saisie == $membre['mdp']) {
             // Si le mdp saisie et crypté est égal au mdp enregistré en BDD, alors tout va bien on peut connecter user.
 
