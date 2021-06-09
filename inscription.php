@@ -72,7 +72,7 @@ if ($_POST) {
             extract($_POST);
             $resultat->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
 
-
+			$mdp = crc32($mdp);
             $resultat->bindParam(':mdp', $mdp, PDO::PARAM_STR);
             $resultat->bindParam(':prenom', $prenom, PDO::PARAM_STR);
             $resultat->bindParam(':nom', $nom, PDO::PARAM_STR);
