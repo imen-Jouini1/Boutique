@@ -58,12 +58,12 @@ if ($_POST) {
         if (isset($_POST['id_produit']) && !empty($_POST['id_produit'])) {
             // S'il y a un id_produit renseigné (caché) dans le formulaire alors on est dans la modification de produit et non dans l'ajout d'un produit.
             // DONC requête UPDATE
-            $resultat = $pdo->prepare("UPDATE produit set reference = :reference, categorie = :categorie, titre = :titre, description = :description, couleur = :couleur, poids = :poids, public = :public, photo = :photo, prix = :prix, stock = :stock WHERE id_produit = :id ");
+            $resultat = $pdo->prepare("UPDATE produit_promo set reference = :reference, categorie = :categorie, titre = :titre, description = :description, couleur = :couleur, poids = :poids, public = :public, photo = :photo, prix = :prix, stock = :stock WHERE id_produit = :id ");
 
             $resultat->bindParam(':id', $_POST['id_produit'], PDO::PARAM_INT);
         } else {
             // Si l'id_produit du formulaire est vide cela signifie que nous sommes en train d'ajouter un produit
-            $resultat = $pdo->prepare("INSERT INTO produit (reference, categorie, titre, description, couleur, poids, public, photo, prix, stock) VALUES (:reference, :categorie, :titre, :description, :couleur, :poids, :public, :photo, :prix, :stock)");
+            $resultat = $pdo->prepare("INSERT INTO produit_promo (reference, categorie, titre, description, couleur, poids, public, photo, prix, stock) VALUES (:reference, :categorie, :titre, :description, :couleur, :poids, :public, :photo, :prix, :stock)");
         }
 
         //STR
@@ -98,7 +98,7 @@ if ($_POST) {
 if (isset($_GET['id']) && !empty($_GET['id']) && is_numeric($_GET['id'])) {
     // Si je trouve un id dans l'url, cela signifie que nous sommes en train de modifier un produit.
     // Il faut donc récupérer le produit à modifier :
-    $resultat = $pdo->prepare("SELECT * FROM produit WHERE id_produit = :id");
+    $resultat = $pdo->prepare("SELECT * FROM produit_promo WHERE id_produit = :id");
     $resultat->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
     $resultat->execute();
 
@@ -140,7 +140,7 @@ $action = (isset($produit_a_modifier)) ? 'Modifier' : 'Ajouter';
 
 require_once('../inc/header.inc.php');
 ?>
-<div class="alert alert-info text-center"><h2>Ajouter un produit</h2></div>
+<div class="alert alert-info text-center"><h2>Ajouter un produit dans la promotion</h2></div>
 
 
 <div class="row">
@@ -215,6 +215,3 @@ require_once('../inc/header.inc.php');
         </form>
     </div>
 </div>
-<?php
-require_once('../inc/footer.inc.php');
-?>

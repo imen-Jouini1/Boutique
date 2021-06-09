@@ -55,9 +55,16 @@ $html .= '</table>';
 <?= $error ?>
 
 
-<a href="<?= RACINE_SITE ?>admin/formulaire_produit.php" class="btn btn-primary">Ajouter un produit</a><br/><br/>
+<a href="<?= RACINE_SITE ?>admin/formulaire_produit.php" class="btn btn-primary">Ajouter un produit dans l'acceuil  </a><br/><br/>
+<a href="<?= RACINE_SITE ?>admin/formulaire_promotion.php" class="btn btn-primary">Ajouter un produit dans le promotion</a><br/><br/>
 
 <?= $html ?>
+<br>
+
+
+
+
+
 
 
 

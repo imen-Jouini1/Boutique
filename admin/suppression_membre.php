@@ -26,7 +26,7 @@ if (isset($_GET['id']) && !empty($_GET['id']) && is_numeric($_GET['id'])) {
         $resultat = $pdo->exec("DELETE FROM membre WHERE id_membre = $users[id_membre]");
         if ($resultat) {
             // Si la requête s'est bien passée
-            $_SESSION['success'] = '<div class="alert alert-success">Le produit N°' . $users['id_membre'] . ' a été supprimé avec succès</div>';
+            $_SESSION['success'] = '<div class="alert alert-success">Le compte N°' . $users['id_membre'] . ' a été supprimé avec succès</div>';
             header("location:" . RACINE_SITE . "admin/gestion_membres.php");
         }
     } else {

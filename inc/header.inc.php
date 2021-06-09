@@ -61,6 +61,7 @@
                     <li <?= ($page == 'Profil') ? 'class="active"' : '' ?> ><a href="<?= RACINE_SITE ?>profil.php">Profil</a>
                     </li>
                     <li><a href="<?= RACINE_SITE ?>connexion.php?action=deconnexion">Deconnexion</a></li>
+
                 <?php else : ?>
                    
 
@@ -69,14 +70,20 @@
                                 href="<?= RACINE_SITE ?>connexion.php">Connexion</a></li>  
                      <li <?= ($page == 'Inscription') ? 'class="active"' : '' ?> ><a
                                 href="<?= RACINE_SITE ?>inscription.php">Inscription</a></li>
+                   
+                    
+
 
 
 
                 <?php endif; ?>
-
+                 
+                 <li <?= ($page == 'Promotion') ? 'class="active"' : '' ?> ><a
+                                href="<?= RACINE_SITE ?>admin/Promotion.php">Promotion</a></li>
                 <li><a href="<?= RACINE_SITE ?>panier.php" ><i class="fas fa-shopping-cart"></i> Panier
                         <?php if (isset($_SESSION['panier']['id_produit'])) : ?>
                             <span class="bulle"><?= nbProduit() ?></span>
+
                         <?php endif; ?>
                     </a></li>
 

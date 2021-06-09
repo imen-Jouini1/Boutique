@@ -40,9 +40,12 @@ require_once('inc/header.inc.php');
           <hr>
         <p> <center>
             <b><?= $nom ?> <?= $prenom ?></b><br/>
-            <?= $adresse ?><br/>
-            <?= $code_postal ?> <?= $ville ?>
+            
+          <label>  <?= $adresse ?></label> <br/>
+           <label><?= $code_postal ?> <?= $ville ?></label>
         </p></center>
+        <div class="col-md-3 col-xs-12" >
+</div>
 
     </div>
 </div>
